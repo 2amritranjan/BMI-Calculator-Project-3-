@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <title>Calculate Body mass index</title>
+</head>
+<body style="margin: 0; padding: 0;">
+  <div class="container" style="background-color: grey; color: white; min-height: 400px;
+    text-align: center; display: flex; flex-direction: column;">
+    <h3>Check Your Fitness</h3>
+    <div class="input-box" style="margin: 10px;">
+      <label class="weight-input" id="weight-input">Enter Weight (kg)<br>
+    <input placeholder="Enter Your Weight(kg)" class="weight-input" style="height: 70px; width: 80%; border-radius: 15px; font-size: 2rem; color: slategrey;">
+    </label><br>
+      <label class="height-input" id="height-input">Enter Height (meter)<br>
+        <input placeholder="Enter Your Height(m)" class="height-input" style="height: 70px; width: 80%; border-radius: 15px; font-size: 2rem; color: slategrey;">
+    </div>
+      <div class="btn">
+      <button style="width: 80px;" class="calculate">Calculate</button>
+    <button type="reset" style="width: 80px;" class="reset">Start Over</button>
+        </div>
+      
+      <div class="message">
+        <h6>Underweight: BMI less than 18.5</h6>
+        <h6>Normal weight (Healthy): BMI 18.5 to 24.9</h6>
+        <h6>Overweight: BMI 25 to 29.9</h6>
+        <h6>Obese: BMI 30 or higher</h6>
+      </div>
+      </div>
+    <script>
+        let displayWeight= document.querySelector('.weight-input input');
+        let displayHeight= document.querySelector('.height-input input');
+        let resetButton = document.querySelector('.reset');
+        let calculate= document.querySelector('.calculate');
+    
+    
+    calculate.addEventListener('click', function(){
+      
+      let weight= parseFloat(displayWeight.value);
+      let height= parseFloat(displayHeight.value);
+      let bmi = (weight/(height*height)).toFixed(2);
+      alert(`Your Body Mass index is ${bmi}`);
+    });
+    
+    resetButton.addEventListener('click', function() {
+    displayWeight.value = '';
+    displayHeight.value = '';
+    });
+    
+    </script>
+</body>
+</html>
